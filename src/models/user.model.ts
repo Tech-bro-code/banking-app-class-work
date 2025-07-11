@@ -13,6 +13,9 @@ const userSchema = new Schema({
     type: String,
     require: true,
   },
+  is_verified:{
+    type:Boolean
+  },
   gender: {
     type: String,
     require: true,
@@ -21,6 +24,9 @@ const userSchema = new Schema({
     type: String,
     require: true,
     unique: true,
+    partialFilterExpression:{
+      phone_number:{$exist:true, $ne:null}
+    }
   },
   location: {
     street: String,
